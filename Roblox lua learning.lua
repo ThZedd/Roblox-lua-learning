@@ -220,3 +220,46 @@ while true do
 	rainSpawner.Anchored = false
 	rainSpawner.Transparency = 0.5
 end
+
+-- Leaderboard / Leaderstats
+
+game.Players.PlayerAdded:Connect(function(player)
+	
+	local leaderstats = Instance.new("Folder",player) -- a folder store values and data
+	leaderstats.Name = "leaderstats" -- we need to name the folder to work
+	
+	local Points = Instance.new("IntValue", leaderstats) -- intvalue variable thats a number that can be used across any script 
+	Points.Name = "Points"
+	Points.Value = 5 -- changes the value of the points
+	
+	local XP = Instance.new("IntValue", leaderstats) -- intvalue variable thats a number that can be used across any script 
+	XP.Name = "XP"
+	XP.Value = 5 -- changes the value of the XP
+end)
+
+-- Points giver (inside a part, we need to add a click detector to a part then we script it)
+
+game.Workspace.MyPart.ClickDetector.MouseClick:Connect(function(player)
+	
+	local PlayerPoints = player.leaderstats.Points
+	PlayerPoints.Value = PlayerPoints.Value + 1 
+end)
+
+
+-- Tables
+
+local MyFirstTable = {5, 3, 6, 8, "Eleven", game.Workspace.Baseplate} -- this is a table
+
+local PlayersPhoneNumbers = {2, 5, 8, 9, 1}
+
+local OmletteIngredients = {"Ham", "Eggs", "Cheese"}
+print(OmletteIngredients[1]) -- in roblox lua a table starts at 1
+
+print(table.concat(PlayersPhoneNumbers, ", ")) -- it will print 2, 5, 8, 9, 1 u can use with strings too
+
+table.insert(PlayersPhoneNumbers, 6) -- it will insert 6
+
+table.remove(PlayersPhoneNumbers, 2) -- it will remove the second number of the table
+
+table.sort(PlayersPhoneNumbers) -- its sorts the smallest number
+
