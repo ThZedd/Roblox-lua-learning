@@ -263,3 +263,21 @@ table.remove(PlayersPhoneNumbers, 2) -- it will remove the second number of the 
 
 table.sort(PlayersPhoneNumbers) -- its sorts the smallest number
 
+
+
+-- in pairs loop / pairs loop
+
+local SecondTable = {"Pizza", "Pasta", "Hotdogs"}
+
+for key, foods in pairs(SecondTable) do -- the first time it loop the key value will be one and the foods value will be pizza and so on
+	print(key.."="..foods) -- how to concatenate in print
+	
+end
+
+local HouseParts = {game.Workspace.Part1, game.Workspace.Part2, game.Workspace.Part3, game.Workspace.Part4}
+
+for i, v in pairs(HouseParts) do
+	wait(3)
+	v:Destroy() -- will delete all the parts
+end
+
